@@ -1,1 +1,47 @@
-jenkins
+pipeline {
+    agent any
+
+    triggers {
+        // This tells Jenkins to trigger a build when GitHub sends a webhook event
+        githubPush()
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out code from GitHub...'
+                // Jenkins automatically handles the checkout if configured via 'Pipeline from SCM'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Building the application...'
+                sh 'java -version'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running automated tests...'
+                sh 'echo "Test Passed!"'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying to EC2 instance...'
+                sh 'echo "Deployed successfully on $(hostname)"'
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Pipeline has finished execution.'
+        }
+        success {
+            echo 'Congratulations! The Webhook trigger worked.'
+        }
+        failure {
+            echo 'Something went wrong. Check the console logs.'
+        }
+    }
+}
