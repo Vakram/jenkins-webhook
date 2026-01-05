@@ -38,7 +38,7 @@ pipeline {
             echo 'Pipeline has finished execution.'
         }
         success {
-            echo 'Congratulations! D Vasim akram you configured jenkins with webhooks'
+            echo 'Congratulations! D Vasim akram you configured jenkins with webhooks successfully'
         }
         failure {
             echo 'Something went wrong. Check the console logs.'
