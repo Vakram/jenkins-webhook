@@ -6,14 +6,18 @@ Even with the script, you must configure two settings to bridge the gap between 
 In Jenkins Job:
 <br>
 Create a Pipeline job.
+<>br
 Under Build Triggers, check the box: GitHub hook trigger for GITScm polling.
+<br>
 Under Pipeline, select Pipeline script from SCM, choose Git, and provide your repo URL.
 
 
 In GitHub Repository:
 <br>
 Go to Settings -> Webhooks -> Add Webhook.
+<br>
 Payload URL: http://<your-ec2-ip>:8080/github-webhook/ (The trailing slash is required).
+<br>
 Content type: Select application/json.
 
 
