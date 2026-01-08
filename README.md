@@ -12,7 +12,6 @@ Under Pipeline, select Pipeline script from SCM, choose Git, and provide your re
 
 In GitHub Repository:
 <br>
-
 Go to Settings -> Webhooks -> Add Webhook.
 Payload URL: http://<your-ec2-ip>:8080/github-webhook/ (The trailing slash is required).
 Content type: Select application/json.
